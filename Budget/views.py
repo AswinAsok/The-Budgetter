@@ -8,4 +8,4 @@ def home(request):
     context = {}
     context['Budgets'] = Budgets
     print(Budgets)
-    return render(request, 'home.html', context)
+    return render(request, 'history.html', context)
