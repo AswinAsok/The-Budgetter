@@ -28,7 +28,7 @@ def home(request):
             income = income + budget.amount
 
     context = {}
-    context['Expenditure'] = expenditure
+    context['Expenditure'] = expenditure*-1
     context['Income'] = income
     context['Total'] = total
     return render(request, 'home.html', context)

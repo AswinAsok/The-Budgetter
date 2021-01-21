@@ -50,15 +50,13 @@
 <div class="jumbotron jumbotron-fluid">
   <h1 class="display-4 d-flex justify-content-center">Home Page</h1>
 </div>
-<div class="container">
-  <hr />
-  <div class="row d-flex justify-content-center">
-    <div
-      class="col-6 m-3 card shadow-lg p-3 mb-5 bg-white rounded border border-primary"
-    >
-      <h4>Total Amount Left: ₹{{Total}}</h4>
-      <h5>Total Income: ₹{{Income}}</h5>
-      <h5>Total Expenditure: ₹{{Expenditure}}</h5>
+<div class="container d-flex justify-content-center">
+  <div class="card mb-5 mt-5 bg-secondary text-white" style="width: 25rem;">
+    <div class="card-body">
+      <h5 class="card-title d-flex justify-content-center">Username: {{user.username}}</h5>
+      <h6 class="card-subtitle d-flex justify-content-center mb-2">Balance Amount ₹{{Total}}</h6>
+      <h6 class="card-subtitle d-flex justify-content-center mb-2">Total Income: ₹{{Income}}</h6>
+      <h6 class="card-subtitle d-flex justify-content-center mb-2">Total Expenditure: ₹{{Expenditure}}</h6>
     </div>
   </div>
   <!-- <div id="container" style="width: 75%;">
