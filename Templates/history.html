@@ -7,24 +7,31 @@
 <div class="jumbotron jumbotron-fluid">
   <h1 class="display-4 d-flex justify-content-center">Previous Transactions</h1>
 </div>
-<div class="container">
+<div class="container ">
   <hr />
-  <div class="row d-flex justify-content-center">
-    <div
-      class="col-6 m-3 card shadow-lg p-3 mb-5 bg-white rounded border border-primary">
-      <div class="card" style="width: 18rem;">
-        <div class="card-body">
-          <h6 class="card-subtitle mb-2 text-muted">Name: Null</h6>
-          <p class="card-text">Amount Left: ₹{{Total}}</p>
-          {% for Budget in Budgets %}
-          <hr>
-          <p>Transaction: {{Budget.name}}</p>
-          <p>Transaction Cost: ₹{{Budget.amount}}</p>
-          <p>Transaction Date: {{Budget.date}}</p>
-          {% endfor %}
-        </div>
+    {%for budget in Budgets%}
+    {%if budget.amount > 0%}
+    <div class="d-flex justify-content-center m-1 text-light">
+    <div class="card bg-success" style="width: 22rem;">
+      <div class="card-body ">
+        <h5 class="card-title d-flex justify-content-center ">{{budget.name}}</h5>
+        <h6 class="card-subtitle mb-2 text-light d-flex justify-content-center ">₹{{budget.amount}}</h6>
+        <p class="card-text d-flex justify-content-center ">{{budget.date}}</p>
       </div>
     </div>
+  </div>
+  {% else %}
+  <div class="d-flex justify-content-center m-1 text-light">
+    <div class="card " style="width: 22rem;">
+      <div class="card-body ">
+        <h5 class="card-title d-flex justify-content-center ">{{budget.name}}</h5>
+        <h6 class="card-subtitle mb-2 d-flex justify-content-center ">₹{{budget.amount}}</h6>
+        <p class="card-text d-flex justify-content-center ">{{budget.date}}</p>
+      </div>
+    </div>
+  </div>
+  {% endif %}
+    {% endfor %}
   </div>
 </div>
 

@@ -17,11 +17,30 @@ def history(request):
 def home(request):
     budgets = Budget.objects.all()
     total = 0
+    income = 0
+    expenditure = 0
     for budget in budgets:
         total = total + budget.amount
-    
+        if(budget.amount<0):
+            expenditure = expenditure + budget.amount
+        else:
+            income = income + budget.amount
+
+
+    labels = []
+    data = []
+
+    queryset = Budget.objects.order_by('-amount')[:5]
+    for budget in queryset:
+        labels.append(budget.name)
+        data.append(budget.amount)
     context = {}
     context['Total'] = total
+    context['Income'] = income
+    context['labels'] = labels
+    context['data'] = data
+
+    context['Expenditure'] = expenditure
     return render(request, 'home.html', context)
 
 def create(request):
