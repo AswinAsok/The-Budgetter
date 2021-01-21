@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect
 from .models import Budget
 from .forms import CreateForm
+from django.contrib.auth.forms import UserCreationForm
 
 # Create your views here.
 
@@ -57,6 +58,21 @@ def create(request):
     context = {}
     context['form'] = form
     return render(request,'create.html', context)
+
+def signup(request):
+    if request.method == 'POST':
+        form = UserCreationForm(request.POST)
+        print(" I reached here")
+        print(form.errors)
+        if form.is_valid():
+            form.save()
+            return redirect('home')
+    else:
+        form = UserCreationForm()
+    
+    context = {}
+    context['form'] = form
+    return render(request, 'registration/signup.html', context )
 
 
         
