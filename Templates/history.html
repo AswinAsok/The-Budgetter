@@ -2,12 +2,30 @@
 {% load crispy_forms_tags %}
 {% block title %} History {% endblock %}
 {% block content %}
-h1>This is the History Page</h1>
-<ol>
-  {%for Budget in Budgets%}
-  <li>{{Budget.name}}</li>
-  <li>{{Budget.amount}}</li>
-  <li>{{Budget.date}}</li>
-  {% endfor %}
-</ol>
+
+
+<div class="jumbotron jumbotron-fluid">
+  <h1 class="display-4 d-flex justify-content-center">Previous Transactions</h1>
+</div>
+<div class="container">
+  <hr />
+  <div class="row d-flex justify-content-center">
+    <div
+      class="col-6 m-3 card shadow-lg p-3 mb-5 bg-white rounded border border-primary">
+      <div class="card" style="width: 18rem;">
+        <div class="card-body">
+          <h6 class="card-subtitle mb-2 text-muted">Name: Null</h6>
+          <p class="card-text">Amount Left: ₹{{Total}}</p>
+          {% for Budget in Budgets %}
+          <hr>
+          <p>Transaction: {{Budget.name}}</p>
+          <p>Transaction Cost: ₹{{Budget.amount}}</p>
+          <p>Transaction Date: {{Budget.date}}</p>
+          {% endfor %}
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
 {% endblock%}

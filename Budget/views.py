@@ -5,10 +5,13 @@ from .forms import CreateForm
 # Create your views here.
 
 def history(request):
-    Budgets = Budget.objects.all()
+    budgets = Budget.objects.all()
     context = {}
-    context['Budgets'] = Budgets
-    print(Budgets)
+    context['Budgets'] = budgets
+    total = 0
+    for budget in budgets:
+        total = total + budget.amount
+    context['Total'] = total
     return render(request, 'history.html', context)
 
 def home(request):

@@ -13,6 +13,7 @@
     >
       <form action="" method="POST">
         {% csrf_token %} {{form|crispy}}
+        <small id="emailHelp" class="form-text text-muted">Kindly add either + or - symbol before the amount.</small>
         <button class="btn mt-3 btn-primary" type="submit">Submit</button>
         <a href="/blog/{{blog_id}}"
           ><button class="btn mt-3 btn-primary" type="button">
