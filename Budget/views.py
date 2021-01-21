@@ -6,7 +6,7 @@ from django.contrib.auth.forms import UserCreationForm
 # Create your views here.
 
 def history(request):
-    budgets = Budget.objects.all()
+    budgets = Budget.objects.filter(user = request.user.id)
     context = {}
     context['Budgets'] = budgets
     total = 0
@@ -16,7 +16,7 @@ def history(request):
     return render(request, 'history.html', context)
 
 def home(request):
-    budgets = Budget.objects.all()
+    budgets = Budget.objects.filter(user = request.user.id)
     total = 0
     income = 0
     expenditure = 0
@@ -27,32 +27,21 @@ def home(request):
         else:
             income = income + budget.amount
 
-
-    labels = []
-    data = []
-
-    queryset = Budget.objects.order_by('-amount')[:5]
-    for budget in queryset:
-        labels.append(budget.name)
-        data.append(budget.amount)
     context = {}
-    context['Total'] = total
-    context['Income'] = income
-    context['labels'] = labels
-    context['data'] = data
-
     context['Expenditure'] = expenditure
+    context['Income'] = income
+    context['Total'] = total
     return render(request, 'home.html', context)
 
 def create(request):
     if request.method == 'POST':
-        form = CreateForm(request.POST)
+        form = CreateForm(request.user.username,request.POST)
         if form.is_valid():
             form.save()
             return redirect('history')
 
     else:
-        form = CreateForm()
+        form = CreateForm(request.user.username)
 
         
     context = {}
