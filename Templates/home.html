@@ -46,6 +46,7 @@
 
 
 {% endblock %} {% block content %}
+{% if user.is_authenticated%}
 <div class="jumbotron jumbotron-fluid">
   <h1 class="display-4 d-flex justify-content-center">Home Page</h1>
 </div>
@@ -64,6 +65,16 @@
       <canvas id="pie-chart"></canvas>
     </div> -->
 </div>
+{% else %}
+<div class="jumbotron jumbotron-fluid mt-5 ">
+  <h1 class="display-4 d-flex justify-content-center">Kindly Login/Signup to use Budgetter</h1>
+  <br>
+  <div class="buttons d-flex justify-content-center">
+    <a href="account/signup/"><button type="button" class="btn  btn-lg btn-secondary m-1">Sign Up</button></a>
+    <a href="account/login/"><button type="button" class="btn btn-lg btn-secondary m-1">Log In</button></a>
+</div>
+</div>
+{% endif %}
 <!-- <script>
 
     var config = {

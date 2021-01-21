@@ -20,10 +20,18 @@
 {% endblock %}
 
 {% block content %}
-<div class="container">
-<form method="POST">
-    {% csrf_token %} {{form|crispy}}
-    <button type="submit" class="btn btn-primary">Sign In</button>
-</form>
+<div class="jumbotron jumbotron-fluid">
+  <h1 class="display-4 d-flex justify-content-center">Login</h1>
+</div>
+<div class="container d-flex justify-content-center mb-5 mt-5">
+  <div class="col-md-6 card">
+    <div class="card-body">
+      <form method="POST">
+        {% csrf_token %} {{form|crispy}}
+        <button type="submit" class="btn btn-secondary">Login</button>
+        <a href="/account/signup/"><button type="button" class="btn btn-secondary">Signup</button></a>
+      </form>
+    </div>
+  </div>
 </div>
 {% endblock %}
