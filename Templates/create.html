@@ -1,6 +1,23 @@
 {% extends "base.html" %}
 {% load crispy_forms_tags %}
 {% block title %} Create Item {% endblock %}
+
+{% block nav%}
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <a class="navbar-brand" href="#">Budgetter</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarNav">
+    <ul class="navbar-nav">
+      <li class="nav-item active text-white">
+       Create<span class="sr-only">(current)</span>
+      </li>
+    </ul>
+  </div>
+</nav>
+{% endblock %}
+
 {% block content %}
 <div class="jumbotron jumbotron-fluid">
   <h1 class="display-4 d-flex justify-content-center">Create Item</h1>

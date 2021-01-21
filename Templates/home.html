@@ -2,7 +2,7 @@
 {% block title %} Home {% endblock %} 
 {% block nav %}
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-  <a class="navbar-brand" href="#">Navbar</a>
+  <a class="navbar-brand" href="#">Budgetter</a>
   <button
     class="navbar-toggler"
     type="button"
@@ -21,18 +21,26 @@
           >Home <span class="sr-only">(current)</span></a
         >
       </li>
+      {% if user.is_authenticated %}
       <li class="nav-item">
-        <a class="nav-link" href="#">Features</a>
+        <a class="nav-link" href="/history">History</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#">Pricing</a>
+        <a class="nav-link" href="create/">Create</a>
       </li>
-      <li class="nav-item">
-        <a class="nav-link disabled" href="#">Disabled</a>
-      </li>
+      {% endif %}
     </ul>
   </div>
+  {% if user.is_authenticated%}
+  <a href="account/logout/"><button type="button" class="btn btn-secondary m-1">Logout</button></a>
+  {% else %}
+  <a href="account/signup/"><button type="button" class="btn btn-secondary m-1">Sign Up</button></a>
+  <a href="account/login/"><button type="button" class="btn btn-secondary m-1">Log In</button></a>
+  {% endif %}
 </nav>
+
+
+
 {% endblock %} {% block content %}
 <div class="jumbotron jumbotron-fluid">
   <h1 class="display-4 d-flex justify-content-center">Home Page</h1>
