@@ -1,18 +1,13 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    <h1>This is the History Page</h1>
-    <ol>
-        {%for Budget in Budgets%}
-        <li>{{Budget.name}}</li>
-        <li>{{Budget.amount}}</li>
-        <li>{{Budget.date}}</li>
-        {% endfor %}
-    </ol>
-</body>
-</html> 
+{% extends "base.html" %}
+{% load crispy_forms_tags %}
+{% block title %} History {% endblock %}
+{% block content %}
+h1>This is the History Page</h1>
+<ol>
+  {%for Budget in Budgets%}
+  <li>{{Budget.name}}</li>
+  <li>{{Budget.amount}}</li>
+  <li>{{Budget.date}}</li>
+  {% endfor %}
+</ol>
+{% endblock%}
