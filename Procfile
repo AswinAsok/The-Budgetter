@@ -1,0 +1,1 @@
+web: gunicorn Budgetter.wsgi.py --log-file -
