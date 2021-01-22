@@ -1,1 +1,1 @@
-web: gunicorn Budgetter.wsgi.py --log-file -
+web: gunicorn Budgetter.wsgi --log-file -
