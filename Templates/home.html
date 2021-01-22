@@ -1,6 +1,5 @@
-{% extends "base.html" %} {% load crispy_forms_tags %} 
-{% block title %} Home {% endblock %} 
-{% block nav %}
+{% extends "base.html" %} {% load crispy_forms_tags %} {% block title %} 
+Home {% endblock %} {% block nav %}
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
   <a class="navbar-brand" href="/">Budgetter</a>
   <button
@@ -28,7 +27,14 @@
   </div>
   {% if user.is_authenticated%}
   <div class="dropdown">
-    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+    <button
+      class="btn btn-secondary dropdown-toggle"
+      type="button"
+      id="dropdownMenuButton"
+      data-toggle="dropdown"
+      aria-haspopup="true"
+      aria-expanded="false"
+    >
       {{user.username}}
     </button>
     <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
@@ -38,65 +44,94 @@
     </div>
   </div>
   {% else %}
-  <a href="account/signup/"><button type="button" class="btn btn-secondary m-1">Sign Up</button></a>
-  <a href="account/login/"><button type="button" class="btn btn-secondary m-1">Log In</button></a>
+  <a href="account/signup/"
+    ><button type="button" class="btn btn-secondary m-1">Sign Up</button></a
+  >
+  <a href="account/login/"
+    ><button type="button" class="btn btn-secondary m-1">Log In</button></a
+  >
   {% endif %}
 </nav>
 
-
-
-{% endblock %} {% block content %}
-{% if user.is_authenticated%}
+{% endblock %} {% block content %} {% if user.is_authenticated%}
 <div class="jumbotron jumbotron-fluid">
   <h1 class="display-4 d-flex justify-content-center">Home Page</h1>
 </div>
+
 <div class="container d-flex justify-content-center">
-  <div class="card mb-5 mt-5 bg-secondary text-white" style="width: 25rem;">
-    <div class="card-body">
-      <h5 class="card-title d-flex justify-content-center">Username: {{user.username}}</h5>
-      <h6 class="card-subtitle d-flex justify-content-center mb-2">Balance Amount ₹{{Total}}</h6>
-      <h6 class="card-subtitle d-flex justify-content-center mb-2">Total Income: ₹{{Income}}</h6>
-      <h6 class="card-subtitle d-flex justify-content-center mb-2">Total Expenditure: ₹{{Expenditure}}</h6>
+  <div class="information">
+    <div class="card mt-5 bg-secondary text-white" style="width: 30rem">
+      <div class="card-body">
+        <h5 class="card-title d-flex justify-content-center">
+          Username: {{user.username}}
+        </h5>
+        <h6 class="card-subtitle d-flex justify-content-center mb-2">
+          Balance Amount ₹{{Total}}
+        </h6>
+        <h6 class="card-subtitle d-flex justify-content-center mb-2">
+          Total Income: ₹{{Income}}
+        </h6>
+        <h6 class="card-subtitle d-flex justify-content-center mb-2">
+          Total Expenditure: ₹{{Expenditure}}
+        </h6>
+      </div>
     </div>
+
+    <div class="card card mb-5 text-white" style="width: 30rem">
+      <div id="container" style="width: 100%">
+        <canvas id="pie-chart"></canvas>
+      </div>
+      <h5 class="form-text text-muted d-flex justify-content-center">Last 5 Tansactions</h5>
+    </div>
+    
   </div>
-  <!-- <div id="container" style="width: 75%;">
-      <canvas id="pie-chart"></canvas>
-    </div> -->
 </div>
+
 {% else %}
-<div class="jumbotron jumbotron-fluid mt-5 ">
-  <h1 class="display-4 d-flex justify-content-center">Kindly Login/Signup to use Budgetter</h1>
-  <br>
+<div class="jumbotron jumbotron-fluid mt-5">
+  <h1 class="display-4 d-flex justify-content-center">
+    Kindly Login/Signup to use Budgetter
+  </h1>
+  <br />
   <div class="buttons d-flex justify-content-center">
-    <a href="account/signup/"><button type="button" class="btn  btn-lg btn-secondary m-1">Sign Up</button></a>
-    <a href="account/login/"><button type="button" class="btn btn-lg btn-secondary m-1">Log In</button></a>
-</div>
+    <a href="account/signup/"
+      ><button type="button" class="btn btn-lg btn-secondary m-1">
+        Sign Up
+      </button></a
+    >
+    <a href="account/login/"
+      ><button type="button" class="btn btn-lg btn-secondary m-1">
+        Log In
+      </button></a
+    >
+  </div>
 </div>
 {% endif %}
-<!-- <script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.3/dist/Chart.min.js"></script>
 
-    var config = {
-      type: 'pie',
-      data: {
-        datasets: [{
-          data: {{ data|safe }},
-          backgroundColor: [
-            '#696969', '#808080', '#A9A9A9', '#C0C0C0', '#D3D3D3'
-          ],
-          label: 'Population'
-        }],
-        labels: {{ labels|safe }}
-      },
-      options: {
-        responsive: true
-      }
-    };
+<script>
 
-    window.onload = function() {
-      var ctx = document.getElementById('pie-chart').getContext('2d');
-      window.myPie = new Chart(ctx, config);
-    };
+  var config = {
+    type: 'pie',
+    data: {
+      datasets: [{
+        data: {{ data|safe }},
+        backgroundColor: [
+          '#696969', '#808080', '#A9A9A9', '#C0C0C0', '#D3D3D3'
+        ],
+        label: 'amount'
+      }],
+      labels: {{ labels|safe }}
+    },
+    options: {
+      responsive: true
+    }
+  };
 
-  </script> -->
+  window.onload = function() {
+    var ctx = document.getElementById('pie-chart').getContext('2d');
+    window.myPie = new Chart(ctx, config);
+  };
+</script>
 
 {% endblock%}
