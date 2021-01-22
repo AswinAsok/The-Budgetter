@@ -27,13 +27,8 @@ def home(request):
         else:
             income = income + budget.amount
 
-    labels = []
-    data = []
-
-    queryset = Budget.objects.order_by('-amount')[:5]
-    for budget in queryset:
-        labels.append(budget.name)
-        data.append(budget.amount)
+    labels = ['Total','Expenditure']
+    data = [total, expenditure]
 
     context = {}
     context['labels'] = labels
