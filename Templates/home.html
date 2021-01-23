@@ -74,6 +74,11 @@ Home {% endblock %} {% block nav %}
         <h6 class="card-subtitle d-flex justify-content-center mb-2">
           Total Expenditure: ₹{{Expenditure}}
         </h6>
+        {% if hasmbudget %}
+        <h6 class="card-subtitle d-flex justify-content-center mb-2">
+          Monthly Budget: ₹{{mbudget}}
+        </h6>
+        {% endif %}
       </div>
     </div>
     {% if not hasmbudget %}
