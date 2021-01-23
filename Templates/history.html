@@ -37,24 +37,23 @@
   <h1 class="display-4 d-flex justify-content-center">Previous Transactions</h1>
 </div>
 <div class="container mb-5">
-  <hr />
     {%for budget in Budgets%}
     {%if budget.amount > 0%}
-    <div class="d-flex justify-content-center m-1 text-light">
-    <div class="card bg-primary" style="width: 22rem;">
+    <div class="d-flex justify-content-center m-1 text-dark">
+    <div class="card bg-light shadow-lg" style="width: 22rem;">
       <div class="card-body ">
-        <h5 class="card-title d-flex justify-content-center ">{{budget.name}}</h5>
-        <h6 class="card-subtitle mb-2 text-light d-flex justify-content-center ">₹{{budget.amount}}</h6>
+        <h5 class="card-title d-flex justify-content-center "><u>{{budget.name}}</u></h5>
+        <h6 class="card-subtitle mb-2 d-flex justify-content-center ">₹ {{budget.amount}}</h6>
         <p class="card-text d-flex justify-content-center ">{{budget.date}}</p>
       </div>
     </div>
   </div>
   {% else %}
   <div class="d-flex justify-content-center m-1 text-light">
-    <div class="card " style="width: 22rem;">
-      <div class="card-body bg-dark">
-        <h5 class="card-title d-flex justify-content-center ">{{budget.name}}</h5>
-        <h6 class="card-subtitle mb-2 d-flex justify-content-center ">₹{{budget.amount}}</h6>
+    <div class="card bg-dark shadow-lg" style="width: 22rem;">
+      <div class="card-body ">
+        <h5 class="card-title d-flex justify-content-center"><u>{{budget.name}}</u></h5>
+        <h6 class="card-subtitle mb-2 text-light d-flex justify-content-center ">₹ {{budget.amount}}</h6>
         <p class="card-text d-flex justify-content-center ">{{budget.date}}</p>
       </div>
     </div>
