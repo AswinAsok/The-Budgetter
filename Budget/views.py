@@ -47,6 +47,7 @@ def home(request):
     context['hasmbudget'] = monthly_budget.exists()
     if request.user.is_authenticated and monthly_budget.exists():
         context['mbudget'] = monthly_budget[0].max_amount
+        context['exceed'] = monthly_budget[0].max_amount - (expenditure*-1)
         
     context['Expenditure'] = expenditure*-1
     context['Income'] = income

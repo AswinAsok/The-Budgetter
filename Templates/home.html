@@ -79,8 +79,14 @@ Home {% endblock %} {% block nav %}
         </h6>
         {% if hasmbudget %}
         <h6 class="card-subtitle d-flex justify-content-center mb-2">
-          Monthly Budget: ₹{{mbudget}}
+          Maximum Expenditure: ₹{{mbudget}}
         </h6>
+        {%if exceed < 5000 %}
+        <br>
+        <div class="alert alert-danger">
+          You are about to exceed your monthly limit!!
+        </div>
+        {% endif %}
         {% endif %}
       </div>
     </div>
@@ -89,7 +95,7 @@ Home {% endblock %} {% block nav %}
     <div class="card shadow-lg m-2 text-white" style="width: 30rem">
       <div id="container" style="width: 100%">
         <div class="card-body">
-          <h5 class="d-flex justify-content-center">You haven't set your maximum budget</h5>
+          <h5 class="d-flex justify-content-center">You haven't set your maximum Expenditure</h5>
           <form method="POST">
             {% csrf_token %} {{form|crispy}}
             <button class="btn mt-3 btn-primary" type="submit">Submit</button>
