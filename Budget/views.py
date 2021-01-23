@@ -70,6 +70,8 @@ def create(request):
     return render(request,'create.html', context)
 
 def signup(request):
+
+    
     if request.method == 'POST':
         form = UserCreationForm(request.POST)
         print(" I reached here")
@@ -85,5 +87,11 @@ def signup(request):
     return render(request, 'registration/signup.html', context )
 
 
-        
+def reset(request):
+    MonthlyBudget.objects.filter(user = request.user.id).delete()
+    return redirect('home')
+
+def resetall(request):
+    Budget.objects.filter(user = request.user.id).delete()
+    return redirect('home')
 
