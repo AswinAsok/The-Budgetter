@@ -60,7 +60,7 @@ Home {% endblock %} {% block nav %}
 
 <div class="container d-flex justify-content-center">
   <div class="information">
-    <div class="card mt-5 bg-secondary text-white" style="width: 30rem">
+    <div class="card m-2 text-dark" style="width: 30rem">
       <div class="card-body">
         <h5 class="card-title d-flex justify-content-center">
           Username: {{user.username}}
@@ -81,8 +81,9 @@ Home {% endblock %} {% block nav %}
         {% endif %}
       </div>
     </div>
+
     {% if not hasmbudget %}
-    <div class="card card mb-5 text-dark" style="width: 30rem">
+    <div class="card m-2 text-dark" style="width: 30rem">
       <div id="container" style="width: 100%">
         <div class="card-body">
           <h5 class="d-flex justify-content-center">You haven't set your maximum budget</h5>
@@ -95,11 +96,11 @@ Home {% endblock %} {% block nav %}
     </div>
     {% endif %}
 
-    <div class="card card mb-5 text-white" style="width: 30rem">
+    <div class="card m-2 card mb-5 text-dark" style="width: 30rem">
       <div id="container" style="width: 100%">
         <canvas id="pie-chart"></canvas>
       </div>
-      <h5 class="form-text text-muted d-flex justify-content-center">Budget Graph</h5>
+      <h5 class="form-text text-dark d-flex justify-content-center">Budget Graph</h5>
     </div>
     
   </div>
@@ -135,8 +136,7 @@ Home {% endblock %} {% block nav %}
       datasets: [{
         data: {{ data|safe }},
         backgroundColor: [
-          '#696969', '#808080', '#A9A9A9', '#C0C0C0', '#D3D3D3'
-        ],
+          '#316879', '#f47a60'],
         label: 'amount'
       }],
       labels: {{ labels|safe }}
