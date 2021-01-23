@@ -82,9 +82,10 @@ Home {% endblock %} {% block nav %}
       </div>
     </div>
     {% if not hasmbudget %}
-    <div class="card card mb-5 text-white" style="width: 30rem">
+    <div class="card card mb-5 text-dark" style="width: 30rem">
       <div id="container" style="width: 100%">
         <div class="card-body">
+          <h5 class="d-flex justify-content-center">You haven't set your maximum budget</h5>
           <form method="POST">
             {% csrf_token %} {{form|crispy}}
             <button class="btn mt-3 btn-primary" type="submit">Submit</button>
