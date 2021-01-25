@@ -11,7 +11,6 @@ class CreateForm(forms.ModelForm):
         super(CreateForm, self).__init__(*args, **kwargs)
         self.fields['user'].queryset = User.objects.filter(username=user)
 
-
 class MonthlyForm(forms.ModelForm):
 
     class Meta:

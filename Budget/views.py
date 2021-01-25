@@ -55,11 +55,34 @@ def home(request):
     return render(request, 'home.html', context)
 
 def create(request):
+    budgets = Budget.objects.filter(user = request.user.id)
+    total = 0
+    income = 0
+    expenditure = 0
+
+    
+
+    for budget in budgets:
+        total = total + budget.amount
+        if(budget.amount<0):
+            expenditure = expenditure + budget.amount
+        else:
+            income = income + budget.amount
+
+
     if request.method == 'POST':
         form = CreateForm(request.user.username,request.POST)
         if form.is_valid():
-            form.save()
-            return redirect('history')
+            #print(form.cleaned_data['amount'])
+            if(form.cleaned_data['amount']>total):
+                form = CreateForm(request.user.username)
+                context = {}
+                context['error'] = True
+                context['form'] = form
+                return render(request,'create.html', context)
+            else:
+                form.save()
+                return redirect('history')
 
     else:
         form = CreateForm(request.user.username)
