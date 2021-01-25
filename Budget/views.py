@@ -74,7 +74,7 @@ def create(request):
         form = CreateForm(request.user.username,request.POST)
         if form.is_valid():
             #print(form.cleaned_data['amount'])
-            if(form.cleaned_data['amount']>total):
+            if(form.cleaned_data['amount']< 0 and form.cleaned_data['amount']*-1>total):
                 form = CreateForm(request.user.username)
                 context = {}
                 context['error'] = True
