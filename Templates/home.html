@@ -60,53 +60,55 @@
 
 <div class="container d-flex justify-content-center">
   <div class="information">
-    <div class="d-flex justify-content-center">
-      <div class="card shadow-lg mb-2 ml-2 mr-2" style="width: 26rem">
-        <div class="card-body home-card">
-          <h5 class="card-title d-flex justify-content-center">
-            <u> User Details</u>
-          </h5>
-          <h6 class="card-subtitle d-flex justify-content-center mb-2">
-            <button class="btn btn-infor m-1 btn-sm">
-              Balance Amount ₹ {{Total}}
-            </button>
-            <button class="btn btn-infor m-1 btn-sm">
-              Total Income: ₹ {{Income}}
-            </button>
-          </h6>
+    <div class="row justify-content-center">
+        <div class="card shadow-lg mb-2 ml-2 mr-2 m-2 col-sm-10 col-md-12" style="width: 26rem">
+          <div class="card-body home-card">
+            <h5 class="card-title d-flex justify-content-center">
+              <u> User Details</u>
+            </h5>
+            <h6 class="card-subtitle d-flex justify-content-center mb-2">
+              <button class="btn btn-infor m-1 btn-sm">
+                Balance Amount ₹ {{Total}}
+              </button>
+              <button class="btn btn-infor m-1 btn-sm">
+                Total Income: ₹ {{Income}}
+              </button>
+            </h6>
 
-          <h6 class="card-subtitle d-flex justify-content-center mb-2">
-            <button class="btn btn-infor m-1 btn-sm">
-              Total Expenditure: ₹ {{Expenditure}}
-            </button>
-          </h6>
+            <h6 class="card-subtitle d-flex justify-content-center mb-2">
+              <button class="btn btn-infor m-1 btn-sm">
+                Total Expenditure: ₹ {{Expenditure}}
+              </button>
+            </h6>
 
-          {% if hasmbudget %}
-          <h6 class="card-subtitle d-flex justify-content-center mb-2">
-            <button class="btn btn-infor m-1 btn-sm">
-              Maximum Expenditure: ₹ {{mbudget}}
-            </button>
-          </h6>
+            {% if hasmbudget %}
+            <h6 class="card-subtitle d-flex justify-content-center mb-2">
+              <button class="btn btn-infor m-1 btn-sm">
+                Maximum Expenditure: ₹ {{mbudget}}
+              </button>
+            </h6>
 
-          {%if exceed < 5000 %}
-          <br />
-          <div class="alert alert-danger">
-            You are about to exceed your monthly limit!!
+            {%if exceed < 5000 %}
+            <br />
+            <div class="alert alert-danger">
+              You are about to exceed your monthly limit!!
+            </div>
+            {% endif %} {% endif %}
           </div>
-          {% endif %} {% endif %}
         </div>
-      </div>
     </div>
 
-    <h6 class="card-subtitle d-flex justify-content-center m-3">
-      {% if hasmbudget %}
-      <a href="reset/"
-        ><button class="btn btn-reset m-1">Reset Max Expenditure</button></a
-      >
-      {% endif %} {% if hasbudget %}
-      <a href="/"><button class="btn m-1 btn-reset">Reset All</button></a>
-      {% endif %}
-    </h6>
+    <div class="row justify-content-center">
+      <h6 class="card-subtitle m-3">
+        {% if hasmbudget %}
+        <a href="reset/"
+          ><button class="btn btn-reset m-1">Reset Max Expenditure</button></a
+        >
+        {% endif %} {% if hasbudget %}
+        <a href="/"><button class="btn m-1 btn-reset">Reset All</button></a>
+        {% endif %}
+      </h6>
+    </div>
     <hr />
 
     {% if not hasmbudget %}
@@ -127,8 +129,8 @@
     </div>
     {% endif %}
 
-    <div class="d-flex justify-content-center">
-      <div class="card shadow-lg m-2 card" style="width: 26rem">
+    <div class="row justify-content-center">
+      <div class="card shadow-lg m-2 col-sm-10 col-md-12" style="width: 26rem">
         <div id="container" style="width: 100%">
           <canvas id="pie-chart"></canvas>
         </div>
@@ -136,18 +138,24 @@
       </div>
     </div>
 
-    <div class="card shadow-lg m-2 card" style="width: 26rem">
-      <div id="container" style="width: 100%">
-        <canvas id="bar-chart"></canvas>
+    <div class="row justify-content-center">
+      <div class="card shadow-lg m-2 col-sm-10 col-md-12 card" style="width: 26rem">
+        <div id="container" style="width: 100%">
+          <canvas id="bar-chart"></canvas>
+        </div>
+        <h5 class="form-text d-flex justify-content-center">
+          Expenditure Graph
+        </h5>
       </div>
-      <h5 class="form-text d-flex justify-content-center">Expenditure Graph</h5>
     </div>
 
-    <div class="card shadow-lg m-2 card" style="width: 26rem">
-      <div id="container" style="width: 100%">
-        <canvas id="bar-chartinc"></canvas>
+    <div class="row justify-content-center">
+      <div class="card shadow-lg m-2 col-sm-10 col-md-12 card" style="width: 26rem">
+        <div id="container" style="width: 100%">
+          <canvas id="bar-chartinc"></canvas>
+        </div>
+        <h5 class="form-text d-flex justify-content-center">Income Graph</h5>
       </div>
-      <h5 class="form-text d-flex justify-content-center">Income Graph</h5>
     </div>
   </div>
 </div>

@@ -1,5 +1,7 @@
 body{
     background-color: #0A65C0;
+    overflow-x: hidden;
+    overflow-y: auto;
 }
 
 .jumbotron
