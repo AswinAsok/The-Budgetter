@@ -54,15 +54,17 @@
 </nav>
 
 {% endblock %} {% block content %} {% if user.is_authenticated%}
+
 <div class="jumbotron jumbotron-fluid">
   <h1 class="display-4 d-flex justify-content-center">Home Page</h1>
 </div>
 
-<div class="container d-flex justify-content-center">
+<div class="container">
   <div class="information">
+
     <div class="row justify-content-center">
       <div
-        class="card col-6 col-sm-10 shadow-lg mb-2 ml-2 mr-2 m-2 col-md-12"
+        class="card   shadow-lg mb-2 ml-2 mr-2 m-2 0"
         style="width: 26rem"
       >
         <div class="card-body home-card">
@@ -116,7 +118,7 @@
 
     {% if not hasmbudget %}
     <div class="container d-flex justify-content-center">
-      <div class="card col-6 col-sm-10 shadow-lg m-2" style="width: 26rem">
+      <div class="card   shadow-lg m-2" style="width: 26rem">
         <div id="container" style="width: 100%">
           <div class="card-body">
             <h5 class="d-flex justify-content-center">
@@ -134,7 +136,7 @@
 
     <div class="row justify-content-center">
       <div
-        class="card col-6 col-sm-10 col-md-12 shadow-lg m-2"
+        class="card   0 shadow-lg m-2"
         style="width: 26rem"
       >
         <div id="container" style="width: 100%">
@@ -146,7 +148,7 @@
 
     <div class="row justify-content-center">
       <div
-        class="card col-6 col-sm-10 shadow-lg m-2 col-md-12 card"
+        class="card   shadow-lg m-2 0 card"
         style="width: 26rem"
       >
         <div id="container" style="width: 100%">
@@ -160,7 +162,7 @@
 
     <div class="row justify-content-center">
       <div
-        class="card col-6 col-sm-10 shadow-lg m-2 col-md-12 card"
+        class="card   shadow-lg m-2 0 card"
         style="width: 26rem"
       >
         <div id="container" style="width: 100%">
@@ -169,6 +171,7 @@
         <h5 class="form-text d-flex justify-content-center">Income Graph</h5>
       </div>
     </div>
+
   </div>
 </div>
 
