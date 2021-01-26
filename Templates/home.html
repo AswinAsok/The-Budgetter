@@ -145,6 +145,15 @@
       </h5>
     </div>
 
+    <div class="card shadow-lg m-2 card" style="width:  26rem">
+      <div id="container" style="width: 100%">
+        <canvas id="bar-chartinc"></canvas>
+      </div>
+      <h5 class="form-text   d-flex justify-content-center">
+        Income Graph
+      </h5>
+    </div>
+
   </div>
 </div>
 
@@ -183,6 +192,7 @@
       labels: {{ labels|safe }}
     },
     options: {
+
       legend: {
         labels: {
           fontColor: "white"
@@ -197,13 +207,63 @@
     data: {
       datasets: [{
         data: {{ data2|safe }},
-        backgroundColor: [
-          '#40F99B', ' #656D74'],
+        borderColor: [
+          '#40F99B'],
         label: 'Expenditure'
       }],
       labels: {{ label2|safe }}
     },
     options: {
+
+      scales: {
+        yAxes: [{
+          ticks: {
+            fontColor: 'white'
+          }
+        }],
+        xAxes: [{
+          ticks: {
+            fontColor: 'white'
+          }
+        }]
+      },
+
+      legend: {
+        labels: {
+          fontColor: "white"
+        },
+      },
+      responsive: true
+    }
+  };
+
+
+  var config3 = {
+    type: 'line',
+    data: {
+      datasets: [{
+        data: {{ data3|safe }},
+        borderColor: [
+          '#40F99B'],
+        label: 'Income'
+      }],
+      labels: {{ label3|safe }}
+    },
+    options: {
+
+      scales: {
+        yAxes: [{
+          ticks: {
+            fontColor: 'white'
+          }
+        }],
+        xAxes: [{
+          ticks: {
+            fontColor: 'white'
+          }
+        }]
+      },
+
       legend: {
         labels: {
           fontColor: "white"
@@ -218,6 +278,8 @@
     window.myPie = new Chart(ctx, config1);
     var ctx1 = document.getElementById('bar-chart').getContext('2d');
     window.myBar = new Chart(ctx1, config2);
+    var ctx2 = document.getElementById('bar-chartinc').getContext('2d');
+    window.myBar2 = new Chart(ctx2, config3);
   };
   
 </script>

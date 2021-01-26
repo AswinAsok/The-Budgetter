@@ -24,9 +24,12 @@ def home(request):
     expenditure = 0
     expenditure_list = []
     expenditure_dates = []
+    income_list = []
+    income_dates = []
     
     for budget in budgets:
         exp_dict = {}
+        inc_dict = {}
         total = total + budget.amount
         if(budget.amount<0):
             expenditure = expenditure + budget.amount
@@ -36,12 +39,19 @@ def home(request):
             expenditure_list.append(exp_dict)
         else:
             income = income + budget.amount
+            inc_dict.__setitem__('x', budget.date.month)
+            inc_dict.__setitem__('y', budget.amount)
+            income_dates.append(budget.date.strftime("%x"))
+            income_list.append(inc_dict)
 
     labels = ['Total','Expenditure']
     data = [total, expenditure]
 
     data2 = expenditure_list
     label2 = expenditure_dates
+
+    data3 = income_list
+    label3 = income_dates
 
     if request.method == 'POST':
         form = MonthlyForm(request.user.username,request.POST)
@@ -55,9 +65,11 @@ def home(request):
     context = {}
     context['labels'] = labels
     context['label2'] = label2
+    context['label3'] = label3
     context['form'] = form
     context['data'] = data
     context['data2'] = data2
+    context['data3'] = data3
     context['hasmbudget'] = monthly_budget.exists()
     context['hasbudget'] = budgets.exists()
     if request.user.is_authenticated and monthly_budget.exists():
