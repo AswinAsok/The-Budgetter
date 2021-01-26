@@ -135,6 +135,16 @@
         Budget Graph
       </h5>
     </div>
+
+    <div class="card shadow-lg m-2 card" style="width:  26rem">
+      <div id="container" style="width: 100%">
+        <canvas id="bar-chart"></canvas>
+      </div>
+      <h5 class="form-text   d-flex justify-content-center">
+        Expenditure Graph
+      </h5>
+    </div>
+
   </div>
 </div>
 
@@ -160,7 +170,8 @@
 <script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.3/dist/Chart.min.js"></script>
 
 <script>
-  var config = {
+  
+  var config1 = {
     type: 'doughnut',
     data: {
       datasets: [{
@@ -181,9 +192,32 @@
     }
   };
 
+  var config2 = {
+    type: 'line',
+    data: {
+      datasets: [{
+        data: {{ data2|safe }},
+        backgroundColor: [
+          '#40F99B', ' #656D74'],
+        label: 'Expenditure'
+      }],
+      labels: {{ label2|safe }}
+    },
+    options: {
+      legend: {
+        labels: {
+          fontColor: "white"
+        },
+      },
+      responsive: true
+    }
+  };
+
   window.onload = function() {
     var ctx = document.getElementById('pie-chart').getContext('2d');
-    window.myPie = new Chart(ctx, config);
+    window.myPie = new Chart(ctx, config1);
+    var ctx1 = document.getElementById('bar-chart').getContext('2d');
+    window.myBar = new Chart(ctx1, config2);
   };
   
 </script>

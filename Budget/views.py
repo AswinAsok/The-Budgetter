@@ -2,6 +2,7 @@ from django.shortcuts import render, redirect
 from .models import Budget,MonthlyBudget
 from .forms import CreateForm,MonthlyForm
 from django.contrib.auth.forms import UserCreationForm
+import json
 
 # Create your views here.
 
@@ -21,17 +22,26 @@ def home(request):
     total = 0
     income = 0
     expenditure = 0
+    expenditure_list = []
+    expenditure_dates = []
+    
     for budget in budgets:
+        exp_dict = {}
         total = total + budget.amount
         if(budget.amount<0):
             expenditure = expenditure + budget.amount
+            exp_dict.__setitem__('x', budget.date.month)
+            exp_dict.__setitem__('y', budget.amount)
+            expenditure_dates.append(budget.date.strftime("%x"))
+            expenditure_list.append(exp_dict)
         else:
             income = income + budget.amount
 
     labels = ['Total','Expenditure']
     data = [total, expenditure]
 
-    dataline = [expenditure]
+    data2 = expenditure_list
+    label2 = expenditure_dates
 
     if request.method == 'POST':
         form = MonthlyForm(request.user.username,request.POST)
@@ -44,8 +54,10 @@ def home(request):
 
     context = {}
     context['labels'] = labels
+    context['label2'] = label2
     context['form'] = form
     context['data'] = data
+    context['data2'] = data2
     context['hasmbudget'] = monthly_budget.exists()
     context['hasbudget'] = budgets.exists()
     if request.user.is_authenticated and monthly_budget.exists():
