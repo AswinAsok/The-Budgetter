@@ -31,6 +31,8 @@ def home(request):
     labels = ['Total','Expenditure']
     data = [total, expenditure]
 
+    dataline = [expenditure]
+
     if request.method == 'POST':
         form = MonthlyForm(request.user.username,request.POST)
         if form.is_valid():
