@@ -104,29 +104,27 @@
         ><button class="btn btn-reset m-1">Reset Max Expenditure</button></a
       >
       {% endif %} {% if hasbudget %}
-      <a href="resetall/"
-        ><button class="btn m-1 btn-reset">Reset All</button></a
-      >
+      <a href="/"><button class="btn m-1 btn-reset">Reset All</button></a>
       {% endif %}
     </h6>
-    <hr/>
+    <hr />
 
     {% if not hasmbudget %}
     <div class="container d-flex justify-content-center">
-    <div class="card shadow-lg m-2" style="width: 26rem">
-      <div id="container" style="width: 100%">
-        <div class="card-body">
-          <h5 class="d-flex justify-content-center">
-            You haven't set your maximum Expenditure
-          </h5>
-          <form method="POST">
-            {% csrf_token %} {{form|crispy}}
-            <button class="btn mt-3 btn-primary" type="submit">Submit</button>
-          </form>
+      <div class="card shadow-lg m-2" style="width: 26rem">
+        <div id="container" style="width: 100%">
+          <div class="card-body">
+            <h5 class="d-flex justify-content-center">
+              You haven't set your maximum Expenditure
+            </h5>
+            <form method="POST">
+              {% csrf_token %} {{form|crispy}}
+              <button class="btn mt-3 btn-primary" type="submit">Submit</button>
+            </form>
+          </div>
         </div>
       </div>
     </div>
-  </div>
     {% endif %}
 
     <div class="d-flex justify-content-center">
@@ -138,22 +136,18 @@
       </div>
     </div>
 
-    <div class="d-flex justify-content-center">
-      <div class="card shadow-lg m-2 card" style="width: 26rem">
-        <div id="container" style="width: 100%">
-          <canvas id="bar-chart"></canvas>
-        </div>
-        <h5 class="form-text d-flex justify-content-center">
-          Expenditure Graph
-        </h5>
+    <div class="card shadow-lg m-2 card" style="width: 26rem">
+      <div id="container" style="width: 100%">
+        <canvas id="bar-chart"></canvas>
       </div>
+      <h5 class="form-text d-flex justify-content-center">Expenditure Graph</h5>
+    </div>
 
-      <div class="card shadow-lg m-2 card" style="width: 26rem">
-        <div id="container" style="width: 100%">
-          <canvas id="bar-chartinc"></canvas>
-        </div>
-        <h5 class="form-text d-flex justify-content-center">Income Graph</h5>
+    <div class="card shadow-lg m-2 card" style="width: 26rem">
+      <div id="container" style="width: 100%">
+        <canvas id="bar-chartinc"></canvas>
       </div>
+      <h5 class="form-text d-flex justify-content-center">Income Graph</h5>
     </div>
   </div>
 </div>
