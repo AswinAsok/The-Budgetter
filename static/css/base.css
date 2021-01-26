@@ -1,17 +1,34 @@
-body
+body{
+    background-color: #0A65C0;
+}
+
+.jumbotron
 {
-    background-color: #E9ECEF;
+    background-color: #0A65C0;
+    color: white;
 }
 
 .card
 {
-    background-color: #343A40;
-    border-radius: 15px;
-   
+    background-color: #1388fc;
+    border-radius: 10px;
+    color:#ffff
 
 }
 
-.jumbotron{
-    height : 10px;
+.btn-infor
+{
+    color: #ffffff;
+    background-color: #343A40 ;
 }
 
+.btn-reset
+{
+    color: white;
+    background-color: #1388fc ;
+}
+
+.card-expen
+{
+    background-color: #343A40 ;
+}

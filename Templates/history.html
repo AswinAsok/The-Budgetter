@@ -39,8 +39,8 @@
 <div class="container mb-5">
     {%for budget in Budgets%}
     {%if budget.amount > 0%}
-    <div class="d-flex justify-content-center m-1 text-dark">
-    <div class="card bg-light shadow-lg" style="width: 22rem;">
+    <div class="d-flex justify-content-center m-2 text-dark">
+    <div class="card  shadow-lg" style="width: 22rem;">
       <div class="card-body ">
         <h5 class="card-title d-flex justify-content-center "><u>{{budget.name}}</u></h5>
         <h6 class="card-subtitle mb-2 d-flex justify-content-center ">₹ {{budget.amount}}</h6>
@@ -49,8 +49,8 @@
     </div>
   </div>
   {% else %}
-  <div class="d-flex justify-content-center m-1 text-light">
-    <div class="card bg-dark shadow-lg" style="width: 22rem;">
+  <div class="d-flex justify-content-center m-2 text-light">
+    <div class="card card-expen  shadow-lg" style="width: 22rem;">
       <div class="card-body ">
         <h5 class="card-title d-flex justify-content-center"><u>{{budget.name}}</u></h5>
         <h6 class="card-subtitle mb-2 text-light d-flex justify-content-center ">₹ {{budget.amount}}</h6>

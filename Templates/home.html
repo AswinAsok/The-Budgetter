@@ -60,35 +60,30 @@
 
 <div class="container d-flex justify-content-center">
   <div class="information">
-    <div class="card shadow-lg m-2 text-white" style="width: 30rem">
+    <div class="card shadow-lg m-2  " style="width:  26rem">
       <div class="card-body home-card">
         <h5 class="card-title d-flex justify-content-center">
           <u> User Details</u>
         </h5>
-        <h5 class="card-title d-flex justify-content-center">
-          <button class="btn bg-secondary text-white">
-            Username: {{user.username}}
-          </button>
-        </h5>
         <h6 class="card-subtitle d-flex justify-content-center mb-2">
-          <button class="btn bg-secondary m-1 text-white">
-            Balance Amount ₹{{Total}}
+          <button class="btn btn-infor m-1 btn-sm ">
+            Balance Amount ₹ {{Total}}
           </button>
-          <button class="btn bg-secondary m-1 text-white">
-            Total Income: ₹{{Income}}
+          <button class="btn btn-infor m-1 btn-sm ">
+            Total Income: ₹ {{Income}}
           </button>
         </h6>
 
         <h6 class="card-subtitle d-flex justify-content-center mb-2">
-          <button class="btn bg-secondary m-1 text-white">
-            Total Expenditure: ₹{{Expenditure}}
+          <button class="btn btn-infor m-1 btn-sm   ">
+            Total Expenditure: ₹ {{Expenditure}}
           </button>
         </h6>
 
         {% if hasmbudget %}
         <h6 class="card-subtitle d-flex justify-content-center mb-2">
-          <button class="btn bg-secondary m-1 text-white">
-            Maximum Expenditure: ₹{{mbudget}}
+          <button class="btn btn-infor m-1  btn-sm  ">
+            Maximum Expenditure: ₹ {{mbudget}}
           </button>
         </h6>
 
@@ -101,21 +96,23 @@
       </div>
     </div>
 
-    <h6 class="card-subtitle d-flex justify-content-center mb-2">
+    <h6 class="card-subtitle d-flex justify-content-center m-3">
       {% if hasmbudget %}
       <a href="reset/"
-        ><button class="btn bg-dark m-1 text-white">
+        ><button class="btn btn-reset m-1  ">
           Reset Max Expenditure
         </button></a
       >
       {% endif %}
+      {% if hasbudget %}
       <a href="resetall/"
-        ><button class="btn bg-dark m-1 text-white">Reset All</button></a
+        ><button class="btn m-1 btn-reset ">Reset All</button></a
       >
+      {% endif %}
     </h6>
 
     {% if not hasmbudget %}
-    <div class="card shadow-lg m-2 text-white" style="width: 30rem">
+    <div class="card shadow-lg m-2  " style="width:  26rem">
       <div id="container" style="width: 100%">
         <div class="card-body">
           <h5 class="d-flex justify-content-center">
@@ -130,11 +127,11 @@
     </div>
     {% endif %}
 
-    <div class="card shadow-lg m-2 card mb-5 text-white" style="width: 30rem">
+    <div class="card shadow-lg m-2 card mb-5  " style="width:  26rem">
       <div id="container" style="width: 100%">
         <canvas id="pie-chart"></canvas>
       </div>
-      <h5 class="form-text text-white d-flex justify-content-center">
+      <h5 class="form-text   d-flex justify-content-center">
         Budget Graph
       </h5>
     </div>
@@ -170,7 +167,7 @@
       datasets: [{
         data: {{ data|safe }},
         backgroundColor: [
-          '#ffff', ' #656D74'],
+          '#40F99B', ' #656D74'],
         label: 'amount'
       }],
       labels: {{ labels|safe }}
