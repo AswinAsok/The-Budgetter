@@ -61,41 +61,44 @@
 <div class="container d-flex justify-content-center">
   <div class="information">
     <div class="row justify-content-center">
-        <div class="card shadow-lg mb-2 ml-2 mr-2 m-2 col-sm-10 col-md-12" style="width: 26rem">
-          <div class="card-body home-card">
-            <h5 class="card-title d-flex justify-content-center">
-              <u> User Details</u>
-            </h5>
-            <h6 class="card-subtitle d-flex justify-content-center mb-2">
-              <button class="btn btn-infor m-1 btn-sm">
-                Balance Amount ₹ {{Total}}
-              </button>
-              <button class="btn btn-infor m-1 btn-sm">
-                Total Income: ₹ {{Income}}
-              </button>
-            </h6>
+      <div
+        class="card col-6 col-sm-10 shadow-lg mb-2 ml-2 mr-2 m-2 col-md-12"
+        style="width: 26rem"
+      >
+        <div class="card-body home-card">
+          <h5 class="card-title d-flex justify-content-center">
+            <u> User Details</u>
+          </h5>
+          <h6 class="card-subtitle d-flex justify-content-center mb-2">
+            <button class="btn btn-infor m-1 btn-sm">
+              Balance Amount ₹ {{Total}}
+            </button>
+            <button class="btn btn-infor m-1 btn-sm">
+              Total Income: ₹ {{Income}}
+            </button>
+          </h6>
 
-            <h6 class="card-subtitle d-flex justify-content-center mb-2">
-              <button class="btn btn-infor m-1 btn-sm">
-                Total Expenditure: ₹ {{Expenditure}}
-              </button>
-            </h6>
+          <h6 class="card-subtitle d-flex justify-content-center mb-2">
+            <button class="btn btn-infor m-1 btn-sm">
+              Total Expenditure: ₹ {{Expenditure}}
+            </button>
+          </h6>
 
-            {% if hasmbudget %}
-            <h6 class="card-subtitle d-flex justify-content-center mb-2">
-              <button class="btn btn-infor m-1 btn-sm">
-                Maximum Expenditure: ₹ {{mbudget}}
-              </button>
-            </h6>
+          {% if hasmbudget %}
+          <h6 class="card-subtitle d-flex justify-content-center mb-2">
+            <button class="btn btn-infor m-1 btn-sm">
+              Maximum Expenditure: ₹ {{mbudget}}
+            </button>
+          </h6>
 
-            {%if exceed < 5000 %}
-            <br />
-            <div class="alert alert-danger">
-              You are about to exceed your monthly limit!!
-            </div>
-            {% endif %} {% endif %}
+          {%if exceed < 5000 %}
+          <br />
+          <div class="alert alert-danger">
+            You are about to exceed your monthly limit!!
           </div>
+          {% endif %} {% endif %}
         </div>
+      </div>
     </div>
 
     <div class="row justify-content-center">
@@ -113,7 +116,7 @@
 
     {% if not hasmbudget %}
     <div class="container d-flex justify-content-center">
-      <div class="card shadow-lg m-2" style="width: 26rem">
+      <div class="card col-6 col-sm-10 shadow-lg m-2" style="width: 26rem">
         <div id="container" style="width: 100%">
           <div class="card-body">
             <h5 class="d-flex justify-content-center">
@@ -130,7 +133,10 @@
     {% endif %}
 
     <div class="row justify-content-center">
-      <div class="card shadow-lg m-2 col-sm-10 col-md-12" style="width: 26rem">
+      <div
+        class="card col-6 col-sm-10 col-md-12 shadow-lg m-2"
+        style="width: 26rem"
+      >
         <div id="container" style="width: 100%">
           <canvas id="pie-chart"></canvas>
         </div>
@@ -139,7 +145,10 @@
     </div>
 
     <div class="row justify-content-center">
-      <div class="card shadow-lg m-2 col-sm-10 col-md-12 card" style="width: 26rem">
+      <div
+        class="card col-6 col-sm-10 shadow-lg m-2 col-md-12 card"
+        style="width: 26rem"
+      >
         <div id="container" style="width: 100%">
           <canvas id="bar-chart"></canvas>
         </div>
@@ -150,7 +159,10 @@
     </div>
 
     <div class="row justify-content-center">
-      <div class="card shadow-lg m-2 col-sm-10 col-md-12 card" style="width: 26rem">
+      <div
+        class="card col-6 col-sm-10 shadow-lg m-2 col-md-12 card"
+        style="width: 26rem"
+      >
         <div id="container" style="width: 100%">
           <canvas id="bar-chartinc"></canvas>
         </div>
