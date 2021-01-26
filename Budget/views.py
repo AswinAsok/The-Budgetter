@@ -7,7 +7,7 @@ import json
 # Create your views here.
 
 def history(request):
-    budgets = Budget.objects.filter(user = request.user.id)
+    budgets = Budget.objects.filter(user = request.user.id).order_by('date')
     context = {}
     context['Budgets'] = budgets
     total = 0
@@ -17,7 +17,7 @@ def history(request):
     return render(request, 'history.html', context)
 
 def home(request):
-    budgets = Budget.objects.filter(user = request.user.id)
+    budgets = Budget.objects.filter(user = request.user.id).order_by('date')
     monthly_budget = MonthlyBudget.objects.filter(user = request.user.id)
     total = 0
     income = 0
